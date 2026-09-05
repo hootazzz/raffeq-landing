@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { background: #F5EFF5; color: #1E1B4B; }
+body { font-family: var(--font-tajawal), Tajawal, system-ui, sans-serif; }
+
+.hero-bg {
+  background:
+    radial-gradient(80% 60% at 60% 20%, #E6D8F0 0%, transparent 60%),
+    radial-gradient(70% 60% at 20% 80%, #F6E7DA 0%, transparent 55%),
+    linear-gradient(180deg, #F1E8F1 0%, #EDE1EC 100%);
+}
+.arch {
+  border-top-left-radius: 999px;
+  border-top-right-radius: 999px;
+}
