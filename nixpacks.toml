@@ -1,12 +1,21 @@
 providers = ["node"]
 
 [phases.setup]
-nixPkgs = ["nodejs_20"]
+nixPkgs = ["nodejs_20", "curl"]
 
 [phases.install]
 cmds = ["npm ci --include=dev || npm install --include=dev"]
 
+[phases.fetch-apk]
+dependsOn = ["install"]
+cmds = [
+  "mkdir -p public/downloads",
+  "curl -fSL --retry 5 --retry-delay 3 -o public/downloads/raffeq.apk https://github.com/hootazzz/raffeq-landing/releases/download/v1.1.0/raffeq.apk",
+  "ls -lh public/downloads/raffeq.apk"
+]
+
 [phases.build]
+dependsOn = ["fetch-apk"]
 cmds = [
   "npm run build",
   "cp -r public .next/standalone/public",
