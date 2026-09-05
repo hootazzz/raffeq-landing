@@ -1,82 +1,54 @@
-import Logo from '@/components/Logo';
-import PhoneMockups from '@/components/PhoneMockups';
-import StoreButtons from '@/components/StoreButtons';
-import StatsRow from '@/components/StatsRow';
-import FeaturesGrid from '@/components/FeaturesGrid';
-import FinalCta from '@/components/FinalCta';
-import Footer from '@/components/Footer';
+import Image from 'next/image';
+
+// Pixel-perfect landing: the reference design IS the hero.
+// Coordinates are % of the 1024x1536 reference image.
+const APK = '/downloads/raffeq.apk';
+const IOS = '#'; // swap with real App Store URL when live
+
+const hotspots = [
+  // Hero row (left side, side by side)
+  { label: 'Google Play (hero)', href: APK, download: 'Raffeq-1.1.0.apk', top: 38.5, left: 3.9, width: 20.5, height: 4.7 },
+  { label: 'App Store (hero)', href: IOS, top: 38.5, left: 24.9, width: 20.5, height: 4.7 },
+  // Bottom CTA (inside plane-wing card)
+  { label: 'App Store (CTA)', href: IOS, top: 94.0, left: 47.8, width: 19.0, height: 4.3 },
+  { label: 'Google Play (CTA)', href: APK, download: 'Raffeq-1.1.0.apk', top: 94.0, left: 67.5, width: 19.7, height: 4.3 },
+];
 
 export default function Page() {
   return (
-    <main className="min-h-screen">
-      {/* HERO */}
-      <section className="hero-bg relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pt-8 pb-16 md:pt-12 md:pb-24">
-          {/* Top bar */}
-          <div className="flex items-center justify-between">
-            <Logo />
-            <div className="hidden md:flex items-center gap-2 text-raffeq-inkSoft text-sm">
-              <span className="text-raffeq-purple">✦</span>
-              <span>تطبيق السفر المتكامل</span>
-            </div>
-          </div>
+    <main className="min-h-screen bg-[#F1E8F1]">
+      {/* SR-only text for SEO/accessibility */}
+      <h1 className="sr-only">رفيق RAFFEQ — رفيقك في كل رحلة. حجوزات طيران، فنادق، تأشيرات، وكل خدمات السفر في تطبيق واحد.</h1>
+      <p className="sr-only">حمّل تطبيق رفيق الآن — متوفر على Google Play و App Store.</p>
 
-          {/* Hero content */}
-          <div className="mt-10 grid md:grid-cols-2 gap-10 md:gap-6 items-center">
-            {/* Right column in RTL — text */}
-            <div className="order-2 md:order-1">
-              <h1 className="text-5xl md:text-7xl font-black leading-[1.05] text-raffeq-ink">
-                رفيقك في
-                <br />
-                كل <span className="text-raffeq-purple">رحلـة</span>
-              </h1>
-              <p className="mt-6 text-lg md:text-xl text-raffeq-inkSoft max-w-md leading-relaxed">
-                حجوزات طيران، فنادق، تأشيرات،
-                <br className="hidden md:block" />
-                وكل خدمات السفر في تطبيق واحد.
-              </p>
-              <div className="mt-8">
-                <StoreButtons />
-              </div>
-            </div>
+      {/* Pixel-perfect design canvas */}
+      <div className="relative mx-auto w-full max-w-[1024px]">
+        <Image
+          src="/reference.png"
+          alt="رفيق RAFFEQ - تطبيق السفر المتكامل"
+          width={1024}
+          height={1536}
+          priority
+          sizes="100vw"
+          className="w-full h-auto block select-none"
+        />
 
-            {/* Left column in RTL — phones + arch */}
-            <div className="order-1 md:order-2 relative">
-              <PhoneMockups />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section className="relative -mt-8 md:-mt-14 z-10">
-        <div className="mx-auto max-w-6xl px-6">
-          <StatsRow />
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-px w-10 bg-raffeq-lilac" />
-            <h2 className="text-2xl md:text-3xl font-extrabold text-raffeq-ink">
-              كل خدمات السفر بين يديك
-            </h2>
-            <span className="h-px w-10 bg-raffeq-lilac" />
-          </div>
-          <FeaturesGrid />
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="pb-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <FinalCta />
-        </div>
-      </section>
-
-      <Footer />
+        {hotspots.map((h) => (
+          <a
+            key={h.label}
+            href={h.href}
+            {...(h.download ? { download: h.download } : {})}
+            aria-label={h.label}
+            className="absolute rounded-2xl transition hover:bg-white/10 focus:outline focus:outline-2 focus:outline-white/60"
+            style={{
+              top: `${h.top}%`,
+              left: `${h.left}%`,
+              width: `${h.width}%`,
+              height: `${h.height}%`,
+            }}
+          />
+        ))}
+      </div>
     </main>
   );
 }
