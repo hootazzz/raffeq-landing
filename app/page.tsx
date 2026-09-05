@@ -66,7 +66,7 @@ export default function Page() {
     <main className="min-h-screen">
       {/* ─── HEADER + HERO ─── */}
       <section className="hero-bg relative overflow-hidden">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-6 pb-12 sm:pb-20 lg:pb-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 pt-6 pb-16 sm:pb-24 lg:pb-32">
           {/* Header */}
           <div className="flex items-center justify-between">
             <Logo />
@@ -76,30 +76,31 @@ export default function Page() {
           </div>
 
           {/* Hero grid */}
-          <div className="mt-10 md:mt-14 grid md:grid-cols-2 gap-8 md:gap-6 lg:gap-10 items-center">
+          <div className="mt-10 md:mt-16 grid md:grid-cols-12 gap-10 md:gap-6 lg:gap-16 items-center">
             {/* Text column (right in RTL) */}
-            <div className="order-2 md:order-1 text-right">
-              <h1 className="text-4xl sm:text-5xl lg:text-[5.5rem] font-black leading-[1.05] text-[#1E1B4B]">
+            <div className="order-2 md:order-1 md:col-span-5 text-right">
+              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-[1] text-[#1E1B4B]">
                 رفيقك في<br />
                 كل <span className="text-[#6C5AA6]">رحلـة</span>
               </h1>
-              <p className="mt-5 text-base sm:text-lg lg:text-xl text-[#3D3766] leading-relaxed max-w-md lg:max-w-lg mr-0 ml-auto">
+              <p className="mt-6 text-base sm:text-lg lg:text-xl text-[#3D3766] leading-relaxed max-w-md ml-auto mr-0">
                 حجوزات طيران، فنادق، تأشيرات،<br className="hidden sm:block" />
                 وكل خدمات السفر في تطبيق واحد.
               </p>
-              <StoreButtons className="mt-7 justify-end" />
+              <StoreButtons className="mt-8 justify-end" />
             </div>
 
-            {/* Visual column (left in RTL) — clean hero artwork, untouched */}
-            <div className="order-1 md:order-2 relative mx-auto w-full max-w-lg lg:max-w-none">
+            {/* Visual column (left in RTL) — full clean artwork, uncropped */}
+            <div className="order-1 md:order-2 md:col-span-7 relative mx-auto w-full max-w-xl lg:max-w-none">
               <Image
                 src="/hero.png"
                 alt="تطبيق رفيق للسفر"
                 width={1199}
                 height={1312}
                 priority
-                sizes="(max-width: 768px) 92vw, (max-width: 1024px) 50vw, 560px"
+                sizes="(max-width: 768px) 92vw, (max-width: 1280px) 55vw, 720px"
                 className="w-full h-auto"
+                style={{ objectFit: 'contain' }}
               />
             </div>
           </div>
