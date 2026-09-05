@@ -90,15 +90,15 @@ export default function Page() {
               <StoreButtons className="mt-7 justify-end" />
             </div>
 
-            {/* Visual column (left in RTL) */}
-            <div className="order-1 md:order-2 relative mx-auto w-full max-w-md lg:max-w-none">
+            {/* Visual column (left in RTL) — clean hero artwork, untouched */}
+            <div className="order-1 md:order-2 relative mx-auto w-full max-w-lg lg:max-w-none">
               <Image
-                src="/hero-visual.png"
-                alt="تطبيق رفيق على الهاتف"
-                width={549}
-                height={810}
+                src="/hero.png"
+                alt="تطبيق رفيق للسفر"
+                width={1199}
+                height={1312}
                 priority
-                sizes="(max-width: 1024px) 90vw, 500px"
+                sizes="(max-width: 768px) 92vw, (max-width: 1024px) 50vw, 560px"
                 className="w-full h-auto"
               />
             </div>
