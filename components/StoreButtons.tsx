@@ -6,7 +6,7 @@ export default function StoreButtons({ variant = 'dark' }: Props) {
       {/* Google Play → APK */}
       <a
         href="/downloads/raffeq.apk"
-        download="Raffeq-1.6.5.apk"
+        download="Raffeq-1.6.6.apk"
         className="group inline-flex items-center gap-3 bg-black text-white rounded-2xl px-5 py-3 shadow-soft hover:scale-[1.02] transition"
       >
         <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
