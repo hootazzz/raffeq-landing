@@ -10,7 +10,7 @@ cmds = ["npm ci --include=dev || npm install --include=dev"]
 dependsOn = ["install"]
 cmds = [
   "mkdir -p public/downloads",
-  "curl -fSL --retry 5 --retry-delay 3 -o public/downloads/raffeq.apk https://github.com/hootazzz/raffeq-landing/releases/download/v1.6.6/raffeq.apk",
+  "curl -fSL --retry 5 --retry-delay 3 -o public/downloads/raffeq.apk https://github.com/hootazzz/raffeq-landing/releases/download/v1.6.7/raffeq.apk",
   "ls -lh public/downloads/raffeq.apk"
 ]
 

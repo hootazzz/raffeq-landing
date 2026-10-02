@@ -29,7 +29,7 @@ const FEATURES = [
 function StoreButtons({ className = '' }: { className?: string }) {
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
-      <a href={APK} download="Raffeq-1.6.6.apk" className="store-btn" aria-label="Download on Google Play">
+      <a href={APK} download="Raffeq-1.6.7.apk" className="store-btn" aria-label="Download on Google Play">
         <IconPlay className="icon" />
         <span className="text-right">
           <span className="caption block">احصل عليه من</span>
